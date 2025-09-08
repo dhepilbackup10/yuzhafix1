@@ -1,0 +1,108 @@
+{
+  "name": "yuzha",
+  "version": "1.0.0",
+  "description": "Personal cafe business ecosystem with modular architecture",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": "20.19.0",
+    "npm": ">=10.0.0"
+  },
+  "workspaces": [
+    "Launcher",
+    "WarungMeng",
+    "apps/1Meng",
+    "apps/5Rara",
+    "apps/3Database",
+    "apps/0Setting",
+    "apps/4Extra",
+    "shared/YuzhaUI",
+    "shared/YuzhaAuth",
+    "shared/YuzhaAPI"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=Launcher",
+    "dev:launcher": "npm run dev --workspace=Launcher",
+    "dev:meng": "npm run dev --workspace=apps/1Meng",
+    "dev:rara": "npm run dev --workspace=apps/5Rara",
+    "dev:database": "npm run dev --workspace=apps/3Database",
+    "dev:setting": "npm run dev --workspace=apps/0Setting",
+    "dev:extra": "npm run dev --workspace=apps/4Extra",
+    "dev:warungmeng": "npm run dev --workspace=WarungMeng",
+    "dev:all": "concurrently \"npm run dev:launcher\" \"npm run dev:meng\" \"npm run dev:rara\" \"npm run dev:database\" \"npm run dev:setting\" \"npm run dev:extra\" \"npm run dev:warungmeng\"",
+
+    "build": "npm run build:merged",
+    "build:merged": "node scripts/build-merged.js",
+
+    "build:launcher": "npm run build --workspace=Launcher",
+    "build:meng": "npm run build --workspace=apps/1Meng",
+    "build:rara": "npm run build --workspace=apps/5Rara",
+    "build:database": "npm run build --workspace=apps/3Database",
+    "build:setting": "npm run build --workspace=apps/0Setting",
+    "build:extra": "npm run build --workspace=apps/4Extra",
+    "build:warungmeng": "npm run build --workspace=WarungMeng",
+
+    "install:all": "npm install",
+    "postinstall": "npm run setup:workspaces",
+    "setup:workspaces": "npm run setup --workspaces --if-present",
+
+    "clean": "npm run clean --workspaces --if-present && rimraf dist",
+    "clean:node_modules": "rimraf node_modules Launcher/node_modules WarungMeng/node_modules apps/*/node_modules shared/*/node_modules",
+    "clean:build": "npm run clean:build --workspaces --if-present",
+
+    "test": "npm run test --workspaces --if-present",
+    "test:ci": "npm run test:ci --workspaces --if-present",
+    "lint": "npm run lint --workspaces --if-present",
+    "lint:fix": "npm run lint:fix --workspaces --if-present",
+    "type-check": "npm run type-check --workspaces --if-present",
+
+    "preview": "npm run preview --workspace=Launcher",
+    "preview:all": "concurrently \"npm run preview --workspace=Launcher\" \"npm run preview --workspace=WarungMeng\" \"npm run preview --workspace=apps/*\"",
+
+    "supabase:start": "supabase start",
+    "supabase:stop": "supabase stop",
+    "supabase:status": "supabase status",
+    "supabase:reset": "supabase db reset",
+    "supabase:gen-types": "supabase gen types typescript --local > shared/YuzhaAPI/types.ts",
+
+    "deploy:build": "npm run build:merged",
+    "check:workspaces": "npm ls --workspaces",
+    "update:deps": "npm update --workspaces"
+  },
+  "devDependencies": {
+    "@types/node": "^22.9.0",
+    "concurrently": "^9.0.1",
+    "rimraf": "^6.0.1",
+    "eslint": "^9.15.0",
+    "typescript": "^5.9.2",
+    "vite": "^7.0.0"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "@supabase/supabase-js": "^2.45.0",
+    "axios": "^1.7.0"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "volta": {
+    "node": "20.19.0",
+    "npm": "10.9.0"
+  },
+  "keywords": [
+    "cafe",
+    "pos",
+    "business",
+    "modular",
+    "react",
+    "vite",
+    "workspace"
+  ],
+  "author": "Yuzha",
+  "license": "private",
+  "repository": {
+    "type": "git",
+    "url": "private"
+  }
+}

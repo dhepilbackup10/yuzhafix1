@@ -1,0 +1,30 @@
+{
+  "name": "@yuzha/auth",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "./YuzhaAuth.tsx",
+  "types": "./YuzhaAuth.tsx",
+  "exports": {
+    ".": "./YuzhaAuth.tsx"
+  },
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "lint": "eslint *.tsx --ext ts,tsx"
+  },
+  "dependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "zustand": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.0",
+    "typescript": "^5.9.2",
+    "eslint": "^9.15.0"
+  },
+  "peerDependencies": {
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}

@@ -1,0 +1,38 @@
+[build]
+  publish = "dist"
+  command = "npm run build"
+
+[[redirects]]
+  from = "/meng/*"
+  to = "/meng/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/rara/*"
+  to = "/rara/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/database/*"
+  to = "/database/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/setting/*"
+  to = "/setting/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/extra/*"
+  to = "/extra/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/warungmeng/*"
+  to = "/warungmeng/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": true,
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react-jsx",
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "baseUrl": ".",
+    "paths": {
+      "@yuzha/ui": ["./shared/YuzhaUI/YuzhaUI.tsx"],
+      "@yuzha/auth": ["./shared/YuzhaAuth/YuzhaAuth.tsx"],
+      "@yuzha/api": ["./shared/YuzhaAPI/YuzhaAPI.tsx"]
+    }
+  },
+  "include": ["Launcher", "WarungMeng", "apps", "shared"],
+  "references": [
+    { "path": "./Launcher" },
+    { "path": "./WarungMeng" },
+    { "path": "./apps/1Meng" },
+    { "path": "./apps/5Rara" },
+    { "path": "./apps/3Database" },
+    { "path": "./apps/0Setting" },
+    { "path": "./apps/4Extra" }
+  ]
+}
